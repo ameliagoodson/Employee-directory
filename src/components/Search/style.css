@@ -1,0 +1,9 @@
+.form-control {
+  width: 50vw !important;
+  margin-right: 20px;
+}
+
+.container {
+  margin: auto;
+  margin-bottom: 20px;
+}
