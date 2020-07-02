@@ -6,38 +6,19 @@ function List(props) {
     <div className="card text-center">
       <table>
         <tr>
-          <th>Name</th>
+          <th onClick={props.handleSort}>Name</th>
           <th>Phone</th>
           <th>Email</th>
           <th>DOB</th>
         </tr>
-
-        <td>
-          {props.employees.map((item) => (
-            <li className="list-group-item" key={item.id}>
-              {item.name}
-            </li>
-          ))}
-        </td>
         {props.employees.map((item) => (
-          <li className="list-group-item" key={item.id}>
-            {item.phone}
-          </li>
+          <tr key={item.name}>
+            <td> {item.name} </td>
+            <td> {item.phone} </td>
+            <td> {item.email} </td>
+            <td> {item.DOB} </td>
+          </tr>
         ))}
-        <td>
-          {props.employees.map((item) => (
-            <li className="list-group-item" key={item.id}>
-              {item.email}
-            </li>
-          ))}
-        </td>
-        <td>
-          {props.employees.map((item) => (
-            <li className="list-group-item" key={item.id}>
-              {item.DOB}
-            </li>
-          ))}
-        </td>
       </table>
     </div>
   );
