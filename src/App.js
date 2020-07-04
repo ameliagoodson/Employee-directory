@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "./components/Navbar/index";
 import List from "./components/List/List";
 import Searchbar from "./components/Search/search";
-
 class App extends React.Component {
   state = {
     employees: [
@@ -37,21 +36,19 @@ class App extends React.Component {
         DOB: 2909544,
       },
     ],
+    order: true,
   };
-
   handleSort = () => {
-    console.log("test");
-    const sortedEmployees = this.state.employees.sort(function (
-      employee1,
-      employee2
-    ) {
-      if (employee1.name > employee2.name) {
-        return employee1;
-      } else {
-        return employee2;
+    const sortedEmployees = this.state.employees.sort(
+      (employee1, employee2) => {
+        if (this.state.order) {
+          return employee1.name > employee2.name ? 1 : -1;
+        } else {
+          return employee1.name < employee2.name ? 1 : -1;
+        }
       }
-    });
-    this.setState({ employees: sortedEmployees });
+    );
+    this.setState({ employees: sortedEmployees, order: !this.state.order });
   };
   render() {
     return (
@@ -63,5 +60,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;
